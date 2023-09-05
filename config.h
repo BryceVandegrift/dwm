@@ -95,7 +95,6 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = { "firefox-esr", NULL };
 static const char *emailcmd[] = { "st", "-e", "aerc", NULL };
 static const char *newscmd[] = { "st", "-e", "newsraft", NULL };
-static const char *unicodecmd[] = { "unicode", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
@@ -107,7 +106,8 @@ static const Key keys[] = {
         { MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
         { MODKEY,                       XK_e,      spawn,          {.v = emailcmd } },
         { MODKEY,                       XK_n,      spawn,          {.v = newscmd } },
-        { MODKEY,                       XK_u,      spawn,          {.v = unicodecmd } },
+        { MODKEY,                       XK_u,      spawn,          SHCMD("unicode") },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("bookmarks") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
