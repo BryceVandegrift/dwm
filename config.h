@@ -34,7 +34,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Gimp",    NULL,     NULL,           0,         0,          0,           0,        -1 },
 	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
@@ -96,6 +96,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = { "firefox-esr", NULL };
 static const char *emailcmd[] = { "st", "-e", "aerc", NULL };
 static const char *newscmd[] = { "st", "-e", "newsraft", NULL };
+static const char *filemancmd[] = { "st", "-e", "lf", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
@@ -107,6 +108,7 @@ static const Key keys[] = {
         { MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
         { MODKEY,                       XK_e,      spawn,          {.v = emailcmd } },
         { MODKEY,                       XK_n,      spawn,          {.v = newscmd } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = filemancmd } },
         { MODKEY,                       XK_u,      spawn,          SHCMD("unicode") },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("bookmarks") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
